@@ -12,6 +12,7 @@ public class SpDemoApplicationTests {
 
 	@Test
 	public void contextLoads() {
+	 String demo="";
 	}
 
 }

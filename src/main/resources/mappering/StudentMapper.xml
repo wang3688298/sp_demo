@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wk.dao.StudentDao">
+
+    <resultMap id="BaseResultMap" type="com.wk.bo.Student" >
+            <id column="id" property="id" jdbcType="INTEGER" />
+            <result column="name" property="name" jdbcType="VARCHAR" />
+            <result column="sex" property="sex" jdbcType="VARCHAR" />
+        </resultMap>
+        <sql id="Base_Column_List" >
+            id, name, sex
+        </sql>
+    <select id="byid" resultType="com.wk.bo.Student" parameterType="java.lang.Integer">
+        select * from student  where id = #{0}
+    </select>
+    <select id="stusbysex" resultType="com.wk.bo.Student" parameterType="java.lang.String">
+        select id,name,sex  from   student  where sex=#{sex}
+    </select>
+   <!-- <select id="stusbysex" resultType="java.lang.String" parameterType="com.wk.bo.Student">
+        select *  from   student  where sex=#{sex}
+   </select>
+    <insert id="insert" parameterType="com.wk.bo.Student">
+        insert into student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="sex != null">
+                sex,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                #{sex,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>-->
+<!--
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.winter.model.User">
+        update t_user
+        <set>
+            <if test="userName != null">
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                password = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where user_id = #{userId,jdbcType=INTEGER}
+    </update>-->
+</mapper>

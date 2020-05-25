@@ -50,7 +50,7 @@ public class SpDemoApplication {
 		return new MessageListenerAdapter(receiver, "receiveMessage");
 	}*/
 	public static void main(String[] args) {
-
+            String a="aa";
 		ConfigurableApplicationContext contxt=SpringApplication.run(SpDemoApplication.class, args);
 		DataSource dataSource=contxt.getBean(DataSource.class);
 		System.out.print(dataSource);

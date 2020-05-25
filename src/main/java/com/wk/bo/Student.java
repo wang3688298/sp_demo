@@ -4,7 +4,7 @@ package com.wk.bo;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
-@Entity
+@Entity //xue
 public class Student implements Serializable{
     //存放redis 一定要实现序列化
    @Id
